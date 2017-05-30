@@ -10,9 +10,6 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity ALU is
-	generic(
-		COMPONENT_SIZE  : integer
-		);
 	port(
 		CARRY_IN	: in  std_logic;
 		INPUT1		: in  std_logic_vector(COMPONENT_SIZE - 1 downto 0);
@@ -26,9 +23,6 @@ end entity;
 
 architecture ALU_ARCH of ALU is
 	component ADDER_SUBTRACTOR_COMPONENT is
-		generic(
-			COMPONENT_SIZE  : integer
-			);
 		port(
 			CARRY_IN	: in  std_logic;
 			INPUT1		: in  std_logic_vector(COMPONENT_SIZE - 1 downto 0);
@@ -39,9 +33,6 @@ architecture ALU_ARCH of ALU is
 	      );
 	end component;
 	component AND_COMPONENT is
-		generic(
-			COMPONENT_SIZE	: integer
-		       );
 		port(
 			INPUT1		: in  std_logic_vector(COMPONENT_SIZE - 1 downto 0);
 			INPUT2		: in  std_logic_vector(COMPONENT_SIZE - 1 downto 0);
@@ -49,9 +40,6 @@ architecture ALU_ARCH of ALU is
 		    );
 	end component;
 	component OR_COMPONENT is
-		generic(
-			COMPONENT_SIZE	: integer
-		       );
 		port(
 			INPUT1		: in  std_logic_vector(COMPONENT_SIZE - 1 downto 0);
 			INPUT2		: in  std_logic_vector(COMPONENT_SIZE - 1 downto 0);
@@ -59,9 +47,6 @@ architecture ALU_ARCH of ALU is
 		    );
 	end component;
 	component XOR_COMPONENT is
-		generic(
-			COMPONENT_SIZE	: integer
-		       );
 		port(
 			INPUT1		: in  std_logic_vector(COMPONENT_SIZE - 1 downto 0);
 			INPUT2		: in  std_logic_vector(COMPONENT_SIZE - 1 downto 0);
@@ -69,65 +54,25 @@ architecture ALU_ARCH of ALU is
 		    );
 	end component;
 	component SHIFT_L_COMPONENT is
-		generic(
-			COMPONENT_SIZE	: integer
-		       );
 		port(
 			INPUT		: in  std_logic_vector(COMPONENT_SIZE - 1 downto 0);
 			OUTPUT		: out std_logic_vector(COMPONENT_SIZE - 1 downto 0)
 		    );
 	end component;
 	component SHIFT_R_COMPONENT is
-		generic(
-			COMPONENT_SIZE	: integer
-		       );
 		port(
 			INPUT		: in  std_logic_vector(COMPONENT_SIZE - 1 downto 0);
 			OUTPUT		: out std_logic_vector(COMPONENT_SIZE - 1 downto 0)
 		    );
 	end component;
-	component COMPARISON_COMPONENT is
-	    generic(
-	        COMPONENT_SIZE  : integer
-	    );
-	
-	    port(
-	        INPUT1      : in std_logic_vector(COMPONENT_SIZE - 1 downto 0);
-	        INPUT2      : in std_logic_vector(COMPONENT_SIZE - 1 downto 0);
-	        Z_FLAG      : out std_logic;
-	        CARRY_FLAG  : out std_logic
-	    );
-	end component;
-	component TWOS_COMPLEMENT_COMPONENT is
-	    generic (
-	        COMPONENT_SIZE  : integer
-	    );
-	    port (
-	        INPUT   : in std_logic_vector(COMPONENT_SIZE - 1 downto 0);
-	        OUTPUT  : out std_logic_vector(COMPONENT_SIZE - 1 downto 0)
-	    );
-	end component;
-	component VECTOR_NORER is
-		generic(
-			COMPONENT_SIZE  : integer
-			);
-		port(
-			INPUT		: in  std_logic_vector(COMPONENT_SIZE - 1 downto 0);
-			OUTPUT		: out std_logic
-	      );
-	end component;
 	component MULTIPLICATION_COMPONENT is
-	generic(
-		COMPONENT_SIZE	: integer
-	);
-	
-	port(
-		INPUT1		: in std_logic_vector(COMPONENT_SIZE/2 - 1 downto 0);
-		INPUT2		: in std_logic_vector(COMPONENT_SIZE/2 - 1 downto 0);
-		OUTPUT		: out std_logic_vector(COMPONENT_SIZE - 1 downto 0)
-	
-	);
-end component;
+		port(
+			INPUT1		: in std_logic_vector(COMPONENT_SIZE/2 - 1 downto 0);
+			INPUT2		: in std_logic_vector(COMPONENT_SIZE/2 - 1 downto 0);
+			OUTPUT		: out std_logic_vector(COMPONENT_SIZE - 1 downto 0)
+		
+		);
+	end component;
 	
 	signal UNKNOWN_SIG					: std_logic_vector(COMPONENT_SIZE - 1 downto 0);
 	signal ZERO_SIG						: std_logic_vector(COMPONENT_SIZE - 1 downto 0);
