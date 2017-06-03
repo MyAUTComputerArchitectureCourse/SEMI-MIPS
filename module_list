@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+src/memory.vhd MEMORY
+src/mips/datapath/alu/full_adder.vhd FULL_ADDER
+src/mips/datapath/alu/adder_subtractor_component.vhd ADDER_SUBTRACTOR_COMPONENT
+src/mips/datapath/alu/or_component.vhd OR_COMPONENT
+src/mips/datapath/alu/shift_l_component.vhd SHIFT_L_COMPONENT
+src/mips/datapath/alu/shift_r_component.vhd SHIFT_R_COMPONENT
+src/mips/datapath/alu/and_component.vhd AND_COMPONENT
+src/mips/datapath/alu/xor_component.vhd XOR_COMPONENT
+src/mips/datapath/alu/not_component.vhd NOT_COMPONENT
+src/mips/datapath/alu/multiplication_component.vhd MULTIPLICTION_COMPONENT
+
+=======
 src/util/tri_state.vhd TRI_STATE
 src/memory/memory.vhd MEMORY
 src/alu/components/bit_comparator.vhd BIT_COMPARATOR
@@ -23,3 +36,4 @@ src/al/address_logic.vhd ADDRESS_LOGIC
 src/al/address_unit.vhd ADDRESS_UNIT
 src/cu/control_unit.vhd CONTROL_UNIT
 src/dp/processor.vhd PROCESSOR
+>>>>>>> 4a98f3f3b1cfc0a2ecf17670eef9a5ef460fa157
