@@ -22,6 +22,7 @@ architecture MEMORY_TB_ARCH of MEMORY_TB is
   begin
     memoryIns : MEMORY port map(clock, we, address, datain, dataout);
       
+    clock <= '0';
     clock <= not clock after 100 ns;
     we <= '0', '1' after 90 ns, '0' after 600 ns;
     address <= (OTHERS => '0');
