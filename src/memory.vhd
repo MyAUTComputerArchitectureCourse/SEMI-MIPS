@@ -4,7 +4,7 @@ use IEEE.Numeric_Std.all;
 
 entity MEMORY is
   port (
-    clock   : in  std_logic;
+    clk   : in  std_logic;
     we      : in  std_logic;
     address : in  std_logic_vector(7 downto 0);
     datain  : in  std_logic_vector(15 downto 0);
@@ -14,16 +14,16 @@ end entity;
 
 architecture MEMORY_ARCH of MEMORY is
 
-   type ram_type is array (0 to (2**address'length)-1) of std_logic_vector(datain'range);
+   type ram_type is array (0 to 255) of std_logic_vector(15 downto 0);
    signal ram : ram_type;
-   signal read_address : std_logic_vector(address'range);
+   signal read_address : std_logic_vector(7 downto 0);
 
 begin
 
-  RamProc: process(clock) is
+  RamProc: process(clk) is
 
   begin
-    if rising_edge(clock) then
+    if clk'event and clk = '1' then
       if we = '1' then
         ram(to_integer(unsigned(address))) <= datain;
       end if;
