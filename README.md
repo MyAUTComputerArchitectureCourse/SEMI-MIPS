@@ -4,7 +4,8 @@
 # SEMI-MIPS
 
 MIPS is a reduced instruction set computer (RISC) instruction set architecture developed by MIPS Technologies (formerly MIPS Computer Systems). The early MIPS architectures were 32-bit, with 64-bit versions added later.
-A limited implementation of MIPS BASIC COMPUTER with VHDL. But this project is not implementing the mips itself but implementing a limeted version with limited instructions MIPS called SEMI-MIPS.
+
+But this project is not implementing the mips itself but implementing a limeted version with limited instructions MIPS called SEMI-MIPS.
 
 ## Purpose
 
