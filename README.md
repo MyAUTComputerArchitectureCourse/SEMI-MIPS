@@ -22,3 +22,10 @@ You can see full documentation [here](/docs).
 
 ## How to run
 
+This project is managed by GBMS&copy;. So if you want this building management system you should have GtkWave and GHDL installed on your OSX or any linux distributed operting system.
+
+Simulation can be started simply by running the following command:
+
+`./run.sh`
+
+You can also simulate and synthesis the project with any other HDL simulators like ModelSIM. Just copy and import the files in the `/src` directory.
