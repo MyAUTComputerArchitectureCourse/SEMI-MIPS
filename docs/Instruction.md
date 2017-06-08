@@ -19,7 +19,7 @@ This processor has three types of instructions:
 * **J-Type:** This is the immedaite type instructions that has this formation:
 
 |Opcode|Zero Const|Memory Address (Immediate)|
-|--|--|--|--|
+|--|--|--|
 |4 bit|0000|8 bit|
 
 ## Instructions List
