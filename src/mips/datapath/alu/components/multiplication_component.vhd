@@ -14,7 +14,7 @@ entity MULTIPLICATION_COMPONENT is
 	port(
 		INPUT1		: in std_logic_vector(7 downto 0);
 		INPUT2		: in std_logic_vector(7 downto 0);
-		OUTPUT		: out std_logic_vector(7 downto 0)
+		OUTPUT		: out std_logic_vector(15 downto 0)
 	
 	);
 end entity;
@@ -49,18 +49,18 @@ begin
 	ain(0)(7) <= '0';
 
 	KHAAR:
-		for L in 0 to 7 generate
+		for L in 0 to 6 generate
 			ain(0)(L) <= gav(0)(L + 1);
 		end generate;
 		output(0) <= gav(0)(0);
 	CONNECT:
-	for I in 0 to 7 generate
+	for I in 0 to 6 generate
 		MODULE: ADDER_SUBTRACTOR_COMPONENT_MULTIPLIER
 		port map('0',gav(I + 1) ,ain(I) , '0', summ(I), cables(I));
 
 		ain(I + 1)(7) <= cables(I);
 		MAKING:
-		for K in 0 to 7 generate
+		for K in 0 to 6 generate
 			ain(I + 1)(K) <= summ(I)(K + 1);
 		end generate;
 
@@ -72,7 +72,7 @@ begin
 	-- 	output(Q + 8) <= summ(7)(Q);
 	-- end generate;
 	AH:
-	for Q in 0 to 7 generate
+	for Q in 0 to 6 generate
 		output(Q + 8) <= summ(7)(Q + 1);
 	end generate;
 	output(16 - 1) <= cables(7);
