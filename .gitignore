@@ -2,7 +2,9 @@
 out/*
 work/*
 *.mti
-*mpf
+*.mpf
+*.bak
+
 # .gitkeep should be exist to remain the directory in the git
 !out/.gitkeep
 !work/.gitkeep
