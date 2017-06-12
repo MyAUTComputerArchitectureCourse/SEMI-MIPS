@@ -18,10 +18,7 @@ end entity;
 
 architecture SHIFT_R_COMPONENT_ARCH of SHIFT_R_COMPONENT is
 begin
-	SIGNAL_GEN:
-	for I in 1 to 16 - 1 generate
-		OUTPUT(I - 1) <= INPUT(I);
-	end generate;
 	
+	OUTPUT(14 downto 0) <= INPUT(15 downto 1);	
 	OUTPUT(16 - 1) <= '0'; 
 end architecture;
