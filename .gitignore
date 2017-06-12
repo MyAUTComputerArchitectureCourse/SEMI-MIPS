@@ -4,6 +4,7 @@ work/*
 *.mti
 *.mpf
 *.bak
+src/transcript
 
 # .gitkeep should be exist to remain the directory in the git
 !out/.gitkeep
