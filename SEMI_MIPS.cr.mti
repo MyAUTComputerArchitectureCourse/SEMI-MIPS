@@ -1,1 +1,141 @@
+{C:/Users/AliReza/HDL workspace/SEMI-MIPS/tb/memory_tb.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/tb/memory_tb.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity MEMORY_TB
+-- Compiling architecture MEMORY_TB_ARCH of MEMORY_TB
 
+} {} {}} {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/shift_r_component.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/shift_r_component.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity SHIFT_R_COMPONENT
+-- Compiling architecture SHIFT_R_COMPONENT_ARCH of SHIFT_R_COMPONENT
+
+} {} {}} {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/address_logic.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/address_logic.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity ADDRESS_LOGIC
+-- Compiling architecture ADDRESS_LOGIC_ARCH of ADDRESS_LOGIC
+
+} {} {}} {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/register/register_file.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/register/register_file.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity registerFile
+-- Compiling architecture registerFile_ARCH of registerFile
+
+} {} {}} {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/status_register.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/status_register.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity STATUS_REGISTER
+-- Compiling architecture STATUS_REGISTER_ARCH of STATUS_REGISTER
+
+} {} {}} {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/or_component.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/or_component.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity OR_COMPONENT
+-- Compiling architecture OR_COMPONENT_ARCH of OR_COMPONENT
+
+} {} {}} {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/not_component.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/not_component.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity NOT_COMPONENT
+-- Compiling architecture NOT_COMPONENT_ARCH of NOT_COMPONENT
+
+} {} {}} {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/alu.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/alu.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ALU
+-- Compiling architecture ALU_ARCH of ALU
+
+} {} {}} {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/adder_subtractor_component_for_multiplier.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/adder_subtractor_component_for_multiplier.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ADDER_SUBTRACTOR_COMPONENT_MULTIPLIER
+-- Compiling architecture ADDER_SUBTRACTOR_COMPONENT_MULTIPLIER_ARCH of ADDER_SUBTRACTOR_COMPONENT_MULTIPLIER
+
+} {} {}} {C:/Users/AliReza/HDL workspace/SEMI-MIPS/tb/rf_tb.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/tb/rf_tb.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity RF_TB
+-- Compiling architecture RF_TB_ARCH of RF_TB
+
+} {} {}} {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/full_adder.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/full_adder.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity FULL_ADDER
+-- Compiling architecture FULL_ADDER_ARCH of FULL_ADDER
+
+} {} {}} {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/xor_component.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/xor_component.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity XOR_COMPONENT
+-- Compiling architecture XOR_COMPONENT_ARCH of XOR_COMPONENT
+
+} {} {}} {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/shift_l_component.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/shift_l_component.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity SHIFT_L_COMPONENT
+-- Compiling architecture SHIFT_L_COMPONENT_ARCH of SHIFT_L_COMPONENT
+
+} {} {}} {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/address_unit.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/address_unit.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ADDRESS_UNIT
+-- Compiling architecture ADDRESS_UNIT_ARCH of ADDRESS_UNIT
+
+} {} {}} {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/and_component.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/and_component.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity AND_COMPONENT
+-- Compiling architecture AND_COMPONENT_ARCH of AND_COMPONENT
+
+} {} {}} {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/program_counter.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/program_counter.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity PROGRAM_COUNTER
+-- Compiling architecture PROGRAM_COUNTER_ARCH of PROGRAM_COUNTER
+
+} {} {}} {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/memory.vhd} {1 {vcom -work work -2002 -explicit -vopt {C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/memory.vhd}
+Model Technology ModelSim SE-64 vcom 10.1c Compiler 2012.07 Jul 27 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity MEMORY
+-- Compiling architecture MEMORY_ARCH of MEMORY
+
+} {} {}}

@@ -28,9 +28,11 @@ architecture MULTIPLICATION_COMPONENT_ARCH of MULTIPLICATION_COMPONENT is
 	end component;
 	
 	type arraySignals is array (0 to 7) of std_logic;
-	type arr1 is array (0 to 7) of std_logic_vector(7 downto 0);
+	type arr_8_8 is array (0 to 7) of std_logic_vector(7 downto 0);
+	type arr_8_16 is array (0 to 7) of std_logic_vector(15 downto 0);
 	signal cables 	: arraySignals;
-	signal khar, gav, ain, summ : arr1;
+	signal khar, gav, ain, summ : arr_8_8;
+	signal gav16, ain16, summ16 : arr_8_16;
 
 	
 begin
@@ -51,8 +53,11 @@ begin
 		output(0) <= gav(0)(0);
 	CONNECT:
 	for I in 0 to 6 generate
+	  gav16(I + 1) <= "00000000" & gav(I + 1);
+	  ain16(I) <= "00000000" & ain(I);
+	  summ(I) <= summ16(I)(7 downto 0);
 		MODULE: ADDER_SUBTRACTOR_COMPONENT
-		port map('0',gav(I + 1) ,ain(I) , '0', summ(I), cables(I));
+		port map('0',gav16(I + 1) ,ain16(I) , '0', summ16(I), cables(I));
 
 		ain(I + 1)(7) <= cables(I);
 		MAKING:
