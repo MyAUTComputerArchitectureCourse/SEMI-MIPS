@@ -7,7 +7,7 @@ entity registerFile is
 		CLK		:	in	std_logic;
 		W_EN	:	in	std_logic;
 		INPUT	:	in	std_logic_vector(15 downto 0);
-		IN_ADR	:	in	st_logic_vector(3 downto 0);
+		IN_ADR	:	in	std_logic_vector(3 downto 0);
 		OUT1_ADR:	in	std_logic_vector(3 downto 0);
 		OUT2_ADR:	in	std_logic_vector(3 downto 0);
 		OUTPUT1	:	out	std_logic_vector(15 downto 0);
