@@ -14,7 +14,7 @@ end entity;
 
 architecture MEMORY_ARCH of MEMORY is
 
-   type ram_type is array (0 to 255) of std_logic_vector(15 downto 0);
+   type ram_type is array (0 to 63) of std_logic_vector(15 downto 0);
    signal ram : ram_type;
    signal read_address : std_logic_vector(7 downto 0);
 
