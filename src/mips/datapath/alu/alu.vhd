@@ -32,6 +32,14 @@ architecture ALU_ARCH of ALU is
 			CARRY		: out std_logic
 	      );
 	end component;
+	
+	component VECTOR_NORER is
+		port(
+			INPUT		: in  std_logic_vector(15 downto 0);
+			OUTPUT		: out std_logic
+	      );
+	end component;
+	
 	component AND_COMPONENT is
 		port(
 			INPUT1		: in  std_logic_vector(16 - 1 downto 0);
@@ -144,21 +152,7 @@ begin
 			INPUT  => INPUT1,
 			OUTPUT => SHIFT_R_COMPONENT_OUT
 		);
-	
-	VECTOR_NORER_INS		: VECTOR_NORER
-		port map(
-			INPUT => OUTPUT_TEMP,
-			OUTPUT => NOR_OF_OUTPUT
-		);
 			
-	COMPARISON_COMPONENT_INS : component COMPARISON_COMPONENT
-		port map(
-			INPUT1     => INPUT1,
-			INPUT2     => INPUT2,
-			Z_FLAG     => COMPARISON_COMPONENT_ZFLAG,
-			CARRY_FLAG => COMPARISON_COMPONENT_CFLAG
-		);
-	
 	MULTIPLICATION_COMPONENT_INS : component MULTIPLICATION_COMPONENT
 		port map(
 			INPUT1 => INPUT1(16/2 - 1 downto 0),
@@ -207,6 +201,6 @@ begin
 			
 			'U' when others;
 			
-	ZERO_OUT <= NOR_OF_OUTPUT;
+	ZERO_OUT <= '0';
 	
 end architecture;
