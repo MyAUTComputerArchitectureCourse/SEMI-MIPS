@@ -52,9 +52,9 @@ begin
 	CONNECT:
 	for I in 0 to 6 generate
 		MODULE: ADDER_SUBTRACTOR_COMPONENT
-		port map('0',"00000000" & gav(I + 1) ,"00000000" & ain(I) , '0', summ(I), cables(I));
+		port map('0',gav(I + 1) ,ain(I) , '0', summ(I), cables(I));
 
-		ain(I + 1)(7) <= cables(I);
+		ain(I + 1)(COMPONENT_SIZE/2 - 1) <= cables(I);
 		MAKING:
 		for K in 0 to 6 generate
 			ain(I + 1)(K) <= summ(I)(K + 1);

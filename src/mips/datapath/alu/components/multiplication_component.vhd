@@ -16,20 +16,13 @@ entity MULTIPLICATION_COMPONENT is
 end entity;
 
 architecture MULTIPLICATION_COMPONENT_ARCH of MULTIPLICATION_COMPONENT is
-	component ADDER_SUBTRACTOR_COMPONENT_MULTIPLIER is
+	component ADDER_SUBTRACTOR_COMPONENT is
 		port(
 			CARRY_IN	: in  std_logic;
-<<<<<<< HEAD
 			INPUT1		: in  std_logic_vector(15 downto 0);
 			INPUT2		: in  std_logic_vector(15 downto 0);
 			IS_SUB		: in  std_logic;											-- 0 for add and 1 for subtraction
 			SUM			: out std_logic_vector(15 downto 0);
-=======
-			INPUT1		: in  std_logic_vector(7 downto 0);
-			INPUT2		: in  std_logic_vector(7 downto 0);
-			IS_SUB		: in  std_logic;											-- 0 for add and 1 for subtraction
-			SUM			: out std_logic_vector(7 downto 0);
->>>>>>> ae1714fb7bec6f857c52929fe28e8d3b5bab8ccc
 			CARRY		: out std_logic
 	      );
 	end component;
@@ -58,11 +51,7 @@ begin
 		output(0) <= gav(0)(0);
 	CONNECT:
 	for I in 0 to 6 generate
-<<<<<<< HEAD
 		MODULE: ADDER_SUBTRACTOR_COMPONENT
-=======
-		MODULE: ADDER_SUBTRACTOR_COMPONENT_MULTIPLIER
->>>>>>> ae1714fb7bec6f857c52929fe28e8d3b5bab8ccc
 		port map('0',gav(I + 1) ,ain(I) , '0', summ(I), cables(I));
 
 		ain(I + 1)(7) <= cables(I);
@@ -75,7 +64,6 @@ begin
 	end generate;
 	
 	-- AH:
-<<<<<<< HEAD
 	-- for Q in 0 to COMPONENT_SIZE/2 - 1 generate
 	-- 	output(Q + COMPONENT_SIZE/2) <= summ(COMPONENT_SIZE/2 - 2)(Q);
 	-- end generate;
@@ -84,14 +72,4 @@ begin
 		output(Q + 8) <= summ(6)(Q + 1);
 	end generate;
 	output(15) <= cables(6);
-=======
-	-- for Q in 0 to 8 - 1 generate
-	-- 	output(Q + 8) <= summ(7)(Q);
-	-- end generate;
-	AH:
-	for Q in 0 to 6 generate
-		output(Q + 8) <= summ(7)(Q + 1);
-	end generate;
-	output(16 - 1) <= cables(7);
->>>>>>> ae1714fb7bec6f857c52929fe28e8d3b5bab8ccc
 end architecture;
