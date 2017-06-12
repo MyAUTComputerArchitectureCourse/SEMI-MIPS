@@ -41,3 +41,4 @@ This processor has three types of instructions:
 |`store`|1101-SR-MemoryAddress(Immediate)|I-Type|
 |`load`|1110-DR-MemoryAddress(Immediate)|I-Type|
 |`srl`|1001-DR-SR-Immediate|I-Type|
+|`sll`|1100-DR-SR-Immediate|I-Type|
