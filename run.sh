@@ -45,7 +45,7 @@ done < "$input"
 echo "${PURPLE}Testbench compiling phase${NC}"
 
 # Compiling test bench file and producing vcd file to show the wave
-ghdl -a ../src/tb/tb.vhd
+ghdl -a ../tb/tb.vhd
 echo "${GREEN}/tb/tb.vhd analyzed.${NC}"
 ghdl -e TB
 echo "${GREEN}module TB evaluated.${NC}"
