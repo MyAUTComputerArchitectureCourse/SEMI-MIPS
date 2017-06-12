@@ -1,0 +1,606 @@
+m255
+K3
+13
+cModel Technology
+dC:\Users\AliReza\HDL workspace\SEMI-MIPS\src
+Eadder_subtractor_component
+Z0 w1496830055
+Z1 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z2 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z3 dC:\Users\AliReza\HDL workspace\SEMI-MIPS
+Z4 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/adder_subtractor_component.vhd
+Z5 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/adder_subtractor_component.vhd
+l0
+L12
+VMFc:mLn`PVzb7@0lQimhM0
+Z6 OL;C;10.1c;51
+32
+Z7 !s108 1497255984.187000
+Z8 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/adder_subtractor_component.vhd|
+Z9 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/adder_subtractor_component.vhd|
+Z10 o-work work -2002 -explicit
+Z11 tExplicit 1
+!s100 XNSUHGYCI;TS8ZV<J9SY62
+!i10b 1
+Aadder_subtractor_component_arch
+R1
+R2
+DEx4 work 26 adder_subtractor_component 0 22 MFc:mLn`PVzb7@0lQimhM0
+l36
+L23
+VoBW[n6QhnP4b;S@Yk;ni51
+R6
+32
+R7
+R8
+R9
+R10
+R11
+!s100 <^e5]<g6OJfmDJFRC6=@>2
+!i10b 1
+Eadder_subtractor_component_multiplier
+Z12 w1497254102
+R1
+R2
+R3
+Z13 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/adder_subtractor_component_for_multiplier.vhd
+Z14 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/adder_subtractor_component_for_multiplier.vhd
+l0
+L12
+V=e68Gl7W2[42;BYG0Y;Lm1
+R6
+32
+Z15 !s108 1497255984.531000
+Z16 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/adder_subtractor_component_for_multiplier.vhd|
+Z17 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/adder_subtractor_component_for_multiplier.vhd|
+R10
+R11
+!s100 nh]?kiL^AcUdV_hiIz18F2
+!i10b 1
+Aadder_subtractor_component_multiplier_arch
+R1
+R2
+DEx4 work 37 adder_subtractor_component_multiplier 0 22 =e68Gl7W2[42;BYG0Y;Lm1
+l36
+L23
+VY]VW<AVLHVQB:5m5h]V;M3
+R6
+32
+R15
+R16
+R17
+R10
+R11
+!s100 BYmKjbL935^P^Ml9lk;M:3
+!i10b 1
+Eaddress_logic
+Z18 w1496745504
+Z19 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+R1
+R2
+R3
+Z20 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/address_logic.vhd
+Z21 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/address_logic.vhd
+l0
+L7
+VgTN1G9>^e>FH5URS]Oz_D2
+R6
+32
+Z22 !s108 1497255982.599000
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/address_logic.vhd|
+Z24 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/address_logic.vhd|
+R10
+R11
+!s100 4Z7:N^QYe2I364B04jSZA0
+!i10b 1
+Aaddress_logic_arch
+R19
+R1
+R2
+DEx4 work 13 address_logic 0 22 gTN1G9>^e>FH5URS]Oz_D2
+l17
+L15
+V];`eCC:eX@zUKQ1a;ok870
+R6
+32
+R22
+R23
+R24
+R10
+R11
+!s100 08gC2`G22LSdMQXek`N=[3
+!i10b 1
+Eaddress_unit
+Z25 w1496752230
+R1
+R2
+R3
+Z26 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/address_unit.vhd
+Z27 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/address_unit.vhd
+l0
+L6
+VQA2Lg=f9X14K<fU;<^FO<3
+R6
+32
+Z28 !s108 1497255982.954000
+Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/address_unit.vhd|
+Z30 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/address_unit.vhd|
+R10
+R11
+!s100 ZegB5GMA86_A:RU13`B`Y0
+!i10b 1
+Aaddress_unit_arch
+R1
+R2
+DEx4 work 12 address_unit 0 22 QA2Lg=f9X14K<fU;<^FO<3
+l33
+L14
+VPF`lYYB<YRDHBF2kiZ5RH3
+R6
+32
+R28
+R29
+R30
+R10
+R11
+!s100 IVS8g6?;FYRTi`F:]f6m:1
+!i10b 1
+Ealu
+R12
+R1
+R2
+R3
+Z31 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/alu.vhd
+Z32 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/alu.vhd
+l0
+L12
+V7_<30`zV@]F?dV7e<MFYi0
+R6
+32
+Z33 !s108 1497255983.822000
+Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/alu.vhd|
+Z35 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/alu.vhd|
+R10
+R11
+!s100 cKd5aLTLVmTO9eJU8dIgS0
+!i10b 1
+Aalu_arch
+R1
+R2
+DEx4 work 3 alu 0 22 7_<30`zV@]F?dV7e<MFYi0
+l107
+L24
+VBA;:gNl6R<:]37d5bKIHC0
+R6
+32
+R33
+R34
+R35
+R10
+R11
+!s100 JXd@ij`U`lad46?7oP>^o0
+!i10b 1
+Eand_component
+Z36 w1496830055
+R1
+R2
+R3
+Z37 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/and_component.vhd
+Z38 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/and_component.vhd
+l0
+L12
+VYFEi<TM7<?hY753QaA;aV0
+R6
+32
+Z39 !s108 1497255984.955000
+Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/and_component.vhd|
+Z41 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/and_component.vhd|
+R10
+R11
+!s100 77e[3QJY5Qgh@9Z394Uc`3
+!i10b 1
+Aand_component_arch
+R1
+R2
+DEx4 work 13 and_component 0 22 YFEi<TM7<?hY753QaA;aV0
+l21
+L20
+VNSU?ia16ekgZ5UA?fJ?0l3
+R6
+32
+R39
+R40
+R41
+R10
+R11
+!s100 55bT4hNYFWmKH0B<B;]iU2
+!i10b 1
+Efull_adder
+R36
+R19
+R1
+R2
+R3
+Z42 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/full_adder.vhd
+Z43 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/full_adder.vhd
+l0
+L13
+V39QXkhcTz:0[9zj:^nETm0
+R6
+32
+Z44 !s108 1497255985.488000
+Z45 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/full_adder.vhd|
+Z46 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/full_adder.vhd|
+R10
+R11
+!s100 b?ECFAO3^5R<042GMjSc^2
+!i10b 1
+Afull_adder_arch
+R19
+R1
+R2
+DEx4 work 10 full_adder 0 22 39QXkhcTz:0[9zj:^nETm0
+l24
+L23
+VZH=;1HhG]<SfGBe_IQ19P0
+R6
+32
+R44
+R45
+R46
+R10
+R11
+!s100 UndeJW0KIeTTm3:1zB^gg2
+!i10b 1
+Ememory
+Z47 w1496830146
+R19
+R1
+R2
+R3
+Z48 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/memory.vhd
+Z49 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/src/memory.vhd
+l0
+L5
+VG8Eif^D=0F35O^:]IjQ`=1
+R6
+32
+Z50 !s108 1497255981.987000
+Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/memory.vhd|
+Z52 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/memory.vhd|
+R10
+R11
+!s100 [n4cEji4c2EGChOX5n@:92
+!i10b 1
+Amemory_arch
+R19
+R1
+R2
+DEx4 work 6 memory 0 22 G8Eif^D=0F35O^:]IjQ`=1
+l21
+L15
+VQnFRXYHD1]=X]Ga^AXMXZ0
+R6
+32
+R50
+R51
+R52
+R10
+R11
+!s100 CCb4Tmh<0:>E9i5Ba6^2<3
+!i10b 1
+Ememory_tb
+Z53 w1496834558
+R1
+R2
+R3
+Z54 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/tb/memory_tb.vhd
+Z55 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/tb/memory_tb.vhd
+l0
+L4
+VIF=eK9]OfAoDk50`B43>a2
+R6
+32
+Z56 !s108 1497255155.374000
+Z57 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/tb/memory_tb.vhd|
+Z58 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/tb/memory_tb.vhd|
+R10
+R11
+!s100 jA1V6oV7;NCBlN1@IO_P41
+!i10b 1
+Amemory_tb_arch
+R1
+R2
+DEx4 work 9 memory_tb 0 22 IF=eK9]OfAoDk50`B43>a2
+l22
+L7
+VR18;b_A_<YQP4Fj=KA2630
+R6
+32
+R56
+R57
+R58
+R10
+R11
+!s100 ?XTOlYjYJZdAbdme[k]6T1
+!i10b 1
+Emultiplication_component
+Z59 w1497256227
+R1
+R2
+R3
+Z60 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/multiplication_component.vhd
+Z61 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/multiplication_component.vhd
+l0
+L7
+VTdjg7n^4oL:2zXPYUn6Z23
+!s100 lh3RCHczK^B>g>KjFECD23
+R6
+32
+!i10b 1
+Z62 !s108 1497256241.962000
+Z63 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/multiplication_component.vhd|
+Z64 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/multiplication_component.vhd|
+R10
+R11
+Amultiplication_component_arch
+R1
+R2
+Z65 DEx4 work 24 multiplication_component 0 22 Tdjg7n^4oL:2zXPYUn6Z23
+l36
+L18
+Z66 VOYBimY^l]X=Am`:E@BNMa3
+Z67 !s100 Z7JHD4H7_3lcFMPShLC123
+R6
+32
+!i10b 1
+R62
+R63
+R64
+R10
+R11
+Enot_component
+R36
+R1
+R2
+R3
+Z68 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/not_component.vhd
+Z69 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/not_component.vhd
+l0
+L12
+VRRG;N0WZ2[HAcWhOkI02`2
+R6
+32
+Z70 !s108 1497255986.070000
+Z71 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/not_component.vhd|
+Z72 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/not_component.vhd|
+R10
+R11
+!s100 =:OhHIY]34g=hDCAR5M781
+!i10b 1
+Anot_component_arch
+R1
+R2
+DEx4 work 13 not_component 0 22 RRG;N0WZ2[HAcWhOkI02`2
+l20
+L19
+VAl=[QTNmfGX_DhPliH55n3
+R6
+32
+R70
+R71
+R72
+R10
+R11
+!s100 W8^4MS:00K8oW8NS4iR5P3
+!i10b 1
+Eor_component
+R36
+R1
+R2
+R3
+Z73 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/or_component.vhd
+Z74 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/or_component.vhd
+l0
+L12
+VlI7K_SYg`QWN>E1Nm03WU3
+R6
+32
+Z75 !s108 1497255986.498000
+Z76 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/or_component.vhd|
+Z77 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/or_component.vhd|
+R10
+R11
+!s100 U@[L1bz@aNED@MYb51Kg@1
+!i10b 1
+Aor_component_arch
+R1
+R2
+DEx4 work 12 or_component 0 22 lI7K_SYg`QWN>E1Nm03WU3
+l22
+L20
+V:HD<fiFa5DM_PL2I`DFaf0
+R6
+32
+R75
+R76
+R77
+R10
+R11
+!s100 5URY;GfbLd<MdFQ0jb?S^0
+!i10b 1
+Eprogram_counter
+Z78 w1496752178
+R1
+R2
+R3
+Z79 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/program_counter.vhd
+Z80 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/program_counter.vhd
+l0
+L7
+Vg9obInG=l5J5A`ET7fQh@0
+R6
+32
+Z81 !s108 1497255983.398000
+Z82 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/program_counter.vhd|
+Z83 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/address_unit/program_counter.vhd|
+R10
+R11
+!s100 TIWdeQ[aX80DlPWTg=dd`2
+!i10b 1
+Aprogram_counter_arch
+R1
+R2
+DEx4 work 15 program_counter 0 22 g9obInG=l5J5A`ET7fQh@0
+l16
+L16
+VC<Ym3Mkkg>2KCeK_>J<S^3
+R6
+32
+R81
+R82
+R83
+R10
+R11
+!s100 VFZ^Dn<D^lKP:gN1l_cS;2
+!i10b 1
+Eshift_l_component
+R36
+R1
+R2
+R3
+Z84 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/shift_l_component.vhd
+Z85 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/shift_l_component.vhd
+l0
+L12
+VQJ@S5i<FV6lE`bkAnY;GP2
+R6
+32
+Z86 !s108 1497255986.909000
+Z87 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/shift_l_component.vhd|
+Z88 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/shift_l_component.vhd|
+R10
+R11
+!s100 n6<A5?UEJnD:k`fXRab:M2
+!i10b 1
+Ashift_l_component_arch
+R1
+R2
+DEx4 work 17 shift_l_component 0 22 QJ@S5i<FV6lE`bkAnY;GP2
+l20
+L19
+ViAGDY;Sl?5RF2b@7CNXdl0
+R6
+32
+R86
+R87
+R88
+R10
+R11
+!s100 iJ19VQelEX>^4hWgSW9`71
+!i10b 1
+Eshift_r_component
+R36
+R1
+R2
+R3
+Z89 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/shift_r_component.vhd
+Z90 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/shift_r_component.vhd
+l0
+L12
+Vm;7IS6LGjPzz;RH;lIXTm3
+R6
+32
+Z91 !s108 1497255987.362000
+Z92 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/shift_r_component.vhd|
+Z93 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/shift_r_component.vhd|
+R10
+R11
+!s100 EGn[o]0b`N@o35JC4NAV62
+!i10b 1
+Ashift_r_component_arch
+R1
+R2
+DEx4 work 17 shift_r_component 0 22 m;7IS6LGjPzz;RH;lIXTm3
+l20
+L19
+V@=V><XhB>VgHo3^BQO9@i2
+R6
+32
+R91
+R92
+R93
+R10
+R11
+!s100 36P86Uil4hG]Jglb34HA@2
+!i10b 1
+Estatus_register
+Z94 w1496834464
+R1
+R2
+R3
+Z95 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/status_register.vhd
+Z96 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/status_register.vhd
+l0
+L5
+VF0GMO;Sl25OZoDdBnn79>1
+R6
+32
+Z97 !s108 1497255982.319000
+Z98 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/status_register.vhd|
+Z99 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/status_register.vhd|
+R10
+R11
+!s100 d_FHeH9J=5>ZoKQ1lFiMz0
+!i10b 1
+Astatus_register_arch
+R1
+R2
+DEx4 work 15 status_register 0 22 F0GMO;Sl25OZoDdBnn79>1
+l13
+L13
+VYE?05jlT[TUXH3nhRdNkD1
+R6
+32
+R97
+R98
+R99
+R10
+R11
+!s100 gz6HkkZPI<718cnck32BD2
+!i10b 1
+Exor_component
+Z100 w1497255653
+R1
+R2
+R3
+Z101 8C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/xor_component.vhd
+Z102 FC:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/xor_component.vhd
+l0
+L12
+V[cJ3UjbR>?d`OWUTaGmFL2
+R6
+32
+Z103 !s108 1497255987.900000
+Z104 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/xor_component.vhd|
+Z105 !s107 C:/Users/AliReza/HDL workspace/SEMI-MIPS/src/mips/datapath/alu/components/xor_component.vhd|
+R10
+R11
+!s100 YChD5@VG@C699]j><C0@_1
+!i10b 1
+Axor_component_arch
+R1
+R2
+DEx4 work 13 xor_component 0 22 [cJ3UjbR>?d`OWUTaGmFL2
+l22
+L20
+VGXD2HI2Ko]ao=1J0SmbA]1
+R6
+32
+R103
+R104
+R105
+R10
+R11
+!s100 a>aeBih_Yj]fNDYYL[dBH0
+!i10b 1
