@@ -249,7 +249,7 @@ begin
 					nextState <= fetch;
 				when OTHERS =>
 					shiftTempSig <= shiftTempSig(14 downto 0) & '0';
-					shif
+					
 					nextState <= shiftLefting;
 			end case;
 				
