@@ -54,6 +54,72 @@ architecture ALU_ARCH of ALU is
 			output : out STD_LOGIC_VECTOR (15 downto 0) := "0000000000000000"
 		);
 	end component;
+	
+	signal DATABUS : std_logic_vector(15 downto 0);
+	
+	
+	
 begin
+	IR : component reg16b
+		port map(
+			clk    => clk,
+			load   => load,
+			reset  => reset,
+			input  => input,
+			output => output
+		);
+		
+	ADDRESS_UNIT_inst : component ADDRESS_UNIT
+		port map(
+			Iside    => Iside,
+			Address  => Address,
+			clk      => clk,
+			ResetPC  => ResetPC,
+			I        => I,
+			PCplus1  => PCplus1,
+			EnablePC => EnablePC
+		);
+		
+	ALU_inst : component ALU
+		port map(
+			CARRY_IN  => CARRY_IN,
+			INPUT1    => INPUT1,
+			INPUT2    => INPUT2,
+			OPERATION => OPERATION,
+			OUTPUT    => OUTPUT,
+			CARRY_OUT => CARRY_OUT,
+			ZERO_OUT  => ZERO_OUT
+		);
+	
+	STATUS_REGISTER_inst : component STATUS_REGISTER
+		port map(
+			carryIn    => carryIn,
+			overflowIn => overflowIn,
+			data       => data,
+			carry      => carry,
+			zero       => zero,
+			sign       => sign,
+			parity     => parity,
+			borrow     => borrow,
+			overflow   => overflow
+		);
+		
+	registerFile_inst : component registerFile
+		port map(
+			CLK      => CLK,
+			W_EN     => W_EN,
+			INPUT    => INPUT,
+			IN_ADR   => IN_ADR,
+			OUT1_ADR => OUT1_ADR,
+			OUT2_ADR => OUT2_ADR,
+			OUTPUT1  => OUTPUT1,
+			OUTPUT2  => OUTPUT2
+		);
+		
+	MEM_TRI_STATE : with signalName select
+		DATABUS <=
+			 when choice1,
+			
+			expression2 when others;
 	
 end architecture;
