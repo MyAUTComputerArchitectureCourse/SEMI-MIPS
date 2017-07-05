@@ -15,3 +15,4 @@ src/mips/datapath/address_unit/address_logic.vhd ADDRESS_LOGIC
 src/mips/datapath/address_unit/program_counter.vhd PROGRAM_COUNTER
 src/mips/datapath/address_unit/address_unit.vhd ADDRESS_UNIT
 src/mips/datapath/register/register_file REGISTER_FILE
+src/mips/mips.vhd SEMI_MIPS
