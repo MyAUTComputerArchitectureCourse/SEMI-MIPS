@@ -1,11 +1,11 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
 entity CU is
 	port (
 	  clk, ExternalReset, 
-	  carry, zero, sign, parity, borrow, overflow,		       -- status register
-	  MemDataReady                                             -- memory
+	  carry, zero, sign, parity, borrow, overflow		       -- status register
 	        : in STD_LOGIC;
 	        
 	  IRout : in STD_LOGIC_VECTOR(15 downto 0);                -- IR 
@@ -18,7 +18,10 @@ entity CU is
 	  itype
 	        : out STD_LOGIC;
 	            -- ALU's bits
-	    	alu_operation : out std_logic_vector(3 downto 0)
+	    	alu_operation : out std_logic_vector(3 downto 0);
+	    	
+	    	databus : inout std_logic_vector(15 downto 0)
+	    	
 		);
 		
 		
@@ -26,7 +29,7 @@ entity CU is
 end entity;
 
 architecture CU_ARCH of CU is 
-	type state is (reset, fetch, baseExe, halt, PCInc);
+	type state is (reset, fetch, baseExe, halt, PCInc, shiftRighting, shiftLefting);
 	signal currentState : state := reset;
 	signal nextState : state;
 	
@@ -62,14 +65,19 @@ architecture CU_ARCH of CU is
 	constant ALU_sub : std_logic_vector (3 downto 0) := "0111";
 	constant ALU_not : std_logic_vector (3 downto 0) := "1000";
 	constant ALU_input2 : std_logic_vector (3 downto 0) := "1010";
+
+
+	signal Immediate : std_logic_vector(7 downto 0);
+	signal shiftTempSig : std_logic_vector(15 downto 0);
 	
 begin
 	
+	Immediate <= IRout(7 downto 0);
 	
   -- state changer
-  process (clk, ExternalReset)
-	begin
-		if ExternalReset = '1' then
+	  process (clk, ExternalReset)
+		begin
+			if ExternalReset = '1' then
 			currentState <= reset;
 		elsif clk'event and clk = '1' then
 			currentState <= nextState;
@@ -77,23 +85,25 @@ begin
 	end process;
 	
 	-- control signals base on state
- 	process (currentState)
+	process (currentState)
+		variable shiftCounter : integer;
+		
 	begin
 	  
 	  -- set defaults
-    ALUout_on_Databus <= '0';
-    IRload <= '0';
-    ResetPC <= '0';
-    EnablePC <= '0';
-    PCplus1 <= '0';
-    itype <= '0';
-    ALUout_on_Databus <= '0';
-    W_EN <= '0';
-    we <= '0';
-    re <= '0';
-    
-    
-    
+	ALUout_on_Databus <= '0';
+	IRload <= '0';
+	ResetPC <= '0';
+	EnablePC <= '0';
+	PCplus1 <= '0';
+	itype <= '0';
+	ALUout_on_Databus <= '0';
+	W_EN <= '0';
+	we <= '0';
+	re <= '0';
+	
+	
+	
 		case currentState is
 		  when halt =>
 		    nextState <= halt;
@@ -200,13 +210,17 @@ begin
 					EnablePC <= '1';
 					nextState <= PCInc;
 				when srlD =>
-					PCplus1 <= '1';
-					EnablePC <= '1';
-					nextState <= fetch;
+					shiftCounter  := to_integer(usnigned(Immediate));
+					alu_operation <= ALU_input2;
+					ALUout_on_Databus <= '1';
+					shiftTempSig <= databus;
+					nextState <= shiftRighting;
 				when sllD =>
-					PCplus1 <= '1';
-					EnablePC <= '1';
-					nextState <= fetch;
+					shiftCounter  := to_integer(usnigned(Immediate));
+					alu_operation <= ALU_input2;
+					ALUout_on_Databus <= '1';
+					shiftTempSig <= databus;
+					nextState <= shiftLefting;
 				end case;
 				
 		when PCInc =>
@@ -214,6 +228,32 @@ begin
 			EnablePC <= '1';
 			nextState <= fetch;
 			  
+		when shiftRighting =>
+			
+			case Immediate is 
+				when 0 =>
+					PCplus1 <= '1';
+					EnablePC <= '1';
+					nextState <= fetch;
+				when OTHERS =>
+					nextState <= shiftRighting;
+			end case;
+				
+			shiftCounter := shiftCounter - 1;
+		when shiftLefting =>
+			
+			case Immediate is 
+				when 0 =>
+					PCplus1 <= '1';
+					EnablePC <= '1';
+					nextState <= fetch;
+				when OTHERS =>
+					shiftTempSig <= shiftTempSig(14 downto 0) & '0';
+					shif
+					nextState <= shiftLefting;
+			end case;
+				
+			shiftCounter := shiftCounter - 1;
 		when comparator =>
 			
 			when OTHERS =>
