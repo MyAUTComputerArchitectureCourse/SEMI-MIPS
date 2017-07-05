@@ -55,7 +55,13 @@ architecture ALU_ARCH of ALU is
 		);
 	end component;
 	
-	signal DATABUS : std_logic_vector(15 downto 0);
+	signal DATABUS  : std_logic_vector(15 downto 0);
+ 	signal Address : std_logic_vector(7 downto 0);
+	signal S1 , S2 , reg2 , d  : std_logic_vector(2 downto 0);
+	signal 4bit_Alu_op : std_logic_vector(3 downto 0);
+	signal I , carryIn, overflowIn, carry, zero, sign, parity, borrow, overflow   : std_logic;
+ 	signal ALUoutput , source1 , source2 , IRin ,  IRoutput : std_logic_vector (15 downto 0);
+	
 	
 	
 	
