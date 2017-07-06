@@ -9,6 +9,8 @@ entity CU is
 	        : in STD_LOGIC;
 	        
 	  IRout : in STD_LOGIC_VECTOR(15 downto 0);                -- IR 
+
+	  reg0 : in STD_LOGIC_VECTOR(15 downto 0);				   -- Register(0)
 	  
 	  ALUout_on_Databus,					                   -- Data Bus
 	  IRload,                                                  -- IR
@@ -189,7 +191,7 @@ begin
 					EnablePC <= '1';
 				when brnz =>
 					alu_operation <= ALU_sub;
-					if (z = '0') then -- if reg(0) is 0
+					if (reg0 = "0000000000000000")) then -- if reg(0) is 0
 						nextState <= fetch;
 						I <= '1';
 						EnablePC <= '1';
@@ -256,7 +258,7 @@ begin
 			end case;
 				
 			shiftCounter := shiftCounter - 1;
-		when comparator =>
+		-- when comparator =>
 			
 			when OTHERS =>
 			  nextState <= reset;
