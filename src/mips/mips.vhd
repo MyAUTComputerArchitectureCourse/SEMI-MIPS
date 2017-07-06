@@ -1,6 +1,7 @@
 entity SEMI_MIPS is
   port (
     clk   			: in  std_logic;
+    external_reset	: in std_logic;
     we      		: out  std_logic;
     address 		: out  std_logic_vector(7 downto 0);
     memory_in		: in  std_logic_vector(15 downto 0);
@@ -8,7 +9,7 @@ entity SEMI_MIPS is
   );
 end entity;
 
-architecture ALU_ARCH of ALU is
+architecture DATA_PATH of SEMI_MIPS is
 	component ALU is
 		port(
 			CARRY_IN	: in  std_logic;
@@ -20,6 +21,7 @@ architecture ALU_ARCH of ALU is
 			ZERO_OUT	: out std_logic
 	      );
 	end component;
+	
 	component STATUS_REGISTER is
 		PORT (
 	        carryIn, overflowIn : IN std_logic;
@@ -27,6 +29,7 @@ architecture ALU_ARCH of ALU is
 	        carry, zero, sign, parity, borrow, overflow : OUT std_logic
 	    );
 	end component;
+	
 	component registerFile is
 		port (
 			CLK		:	in	std_logic;
@@ -39,6 +42,7 @@ architecture ALU_ARCH of ALU is
 			OUTPUT2	:	out	std_logic_vector(15 downto 0)
 		);
 	end component;
+	
 	component ADDRESS_UNIT is
 		PORT (
 	        Iside : IN std_logic_vector (7 DOWNTO 0);
@@ -55,32 +59,63 @@ architecture ALU_ARCH of ALU is
 		);
 	end component;
 	
+	component CU is
+		port (
+		  clk, ExternalReset, 
+		  carry, zero, sign, parity, borrow, overflow		       -- status register
+		        : in STD_LOGIC;
+		        
+		  IRout : in STD_LOGIC_VECTOR(15 downto 0);                -- IR 
+	
+		  reg0 : in STD_LOGIC_VECTOR(15 downto 0);				   -- Register(0)
+		  
+		  ALUout_on_Databus,					                   -- Data Bus
+		  IRload,                                                  -- IR
+		  ResetPC, I, PCplus1, EnablePC,    					   -- Address Unit
+		  W_EN,                 			                       -- register file
+		  we, re,		                                           -- memory
+		  itype
+		        : out STD_LOGIC;
+		            -- ALU's bits
+		    	alu_operation : out std_logic_vector(3 downto 0);
+		    	
+		    	databus : inout std_logic_vector(15 downto 0)
+		    	
+			);
+			
+			
+	
+	end component;
+
+	
+	
+	
 	signal DATABUS  : std_logic_vector(15 downto 0);
- 	signal Address : std_logic_vector(7 downto 0);
+ 	
 	signal S1 , S2 , reg2 , d  : std_logic_vector(2 downto 0);
-	signal 4bit_Alu_op : std_logic_vector(3 downto 0);
+	signal Alu_OP : std_logic_vector(3 downto 0);
 	signal I , carryIn, overflowIn, carry, zero, sign, parity, borrow, overflow   : std_logic;
- 	signal ALUoutput , source1 , source2 , IRin ,  IRoutput : std_logic_vector (15 downto 0);
+ 	signal ALUoutput , source1 , source2 ,  IRoutput : std_logic_vector (15 downto 0);
 	
-	
+	signal IRLoad, IRReset : std_logic;
 	
 	
 begin
 	IR : component reg16b
 		port map(
 			clk    => clk,
-			load   => load,
-			reset  => reset,
-			input  => input,
-			output => output
+			load   => IRLoad,
+			reset  => IRReset,
+			input  => DATABUS,
+			output => IRoutput
 		);
 		
 	ADDRESS_UNIT_inst : component ADDRESS_UNIT
 		port map(
-			Iside    => Iside,
+			Iside    => IRoutput(7 downto 0),
 			Address  => Address,
 			clk      => clk,
-			ResetPC  => ResetPC,
+			ResetPC  => external_reset,
 			I        => I,
 			PCplus1  => PCplus1,
 			EnablePC => EnablePC
