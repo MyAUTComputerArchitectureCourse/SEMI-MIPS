@@ -84,12 +84,12 @@ begin
 		end if;
 	end process;
 	
+	
 	-- control signals base on state
 	process (currentState)
 		variable shiftCounter : integer;
 		
 	begin
-	  
 	  -- set defaults
 	ALUout_on_Databus <= '0';
 	IRload <= '0';
@@ -184,11 +184,13 @@ begin
 					ALUout_on_Databus <= '1';
 					nextState <= fetch;
 				when jmp =>
-					nextState <= PCInc;
+					nextState <= fetch;
+					I <= '1';
+					EnablePC <= '1';
 				when brnz =>
 					alu_operation <= ALU_sub;
-					if (z = '0') then
-						nextState <= PCInc;
+					if (z = '0') then -- if reg(0) is 0
+						nextState <= fetch;
 						I <= '1';
 						EnablePC <= '1';
 					else
