@@ -17,3 +17,4 @@ src/mips/datapath/address_unit/address_unit.vhd ADDRESS_UNIT
 src/mips/datapath/register/register_file REGISTER_FILE
 src/mips/controller.vhd CU
 src/mips/mips.vhd SEMI_MIPS
+src/mips/module.vhd SEMI_MIPS_MODULE
