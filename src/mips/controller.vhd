@@ -127,6 +127,7 @@ begin
 					PCplus1 <= '1';
 					EnablePC <= '1';
 					ALUout_on_Databus <= '1';
+					W_EN <='1';
 					nextState <= fetch;
 				when addi =>
 					alu_operation <= ALU_add;
@@ -134,18 +135,21 @@ begin
 					EnablePC <= '1';
 					itype <= '1';
 					ALUout_on_Databus <= '1';
+					W_EN <='1';
 					nextState <= fetch;
 				when sub =>
 					alu_operation <= ALU_sub;
 					PCplus1 <= '1';
 					EnablePC <= '1';
 					ALUout_on_Databus <= '1';
+					W_EN <='1';
 					nextState <= fetch;
 				when andD =>
 					alu_operation <= ALU_and;
 					PCplus1 <= '1';
 					EnablePC <= '1';
 					ALUout_on_Databus <= '1';
+					W_EN <='1';
 					nextState <= fetch;
 				when andi =>
 					alu_operation <= ALU_and;
@@ -153,12 +157,14 @@ begin
 					EnablePC <= '1';
 					itype <= '1';
 					ALUout_on_Databus <= '1';
+					W_EN <='1';
 					nextState <= fetch;
 				when orD =>
 					alu_operation <= ALU_or;
 					PCplus1 <= '1';
 					EnablePC <= '1';
 					ALUout_on_Databus <= '1';
+					W_EN <='1';
 					nextState <= fetch;
 				when ori =>
 					alu_operation <= ALU_or;
@@ -166,24 +172,28 @@ begin
 					EnablePC <= '1';
 					itype <= '1';
 					ALUout_on_Databus <= '1';
+					W_EN <='1';
 					nextState <= fetch;
 				when xorD =>
 					alu_operation <= ALU_xor;
 					PCplus1 <= '1';
 					EnablePC <= '1';
 					ALUout_on_Databus <= '1';
+					W_EN <='1';
 					nextState <= fetch;
 				when notD =>
 					alu_operation <= ALU_not;
 					PCplus1 <= '1';
 					EnablePC <= '1';
 					ALUout_on_Databus <= '1';
+					W_EN <='1';
 					nextState <= fetch;
 				when mul =>
 					alu_operation <= ALU_mul;
 					PCplus1 <= '1';
 					EnablePC <= '1';
 					ALUout_on_Databus <= '1';
+					W_EN <='1';
 					nextState <= fetch;
 				when jmp =>
 					nextState <= fetch;
@@ -215,12 +225,14 @@ begin
 					shiftCounter  := to_integer(usnigned(Immediate));
 					alu_operation <= ALU_input2;
 					ALUout_on_Databus <= '1';
+					W_EN <='1';
 					shiftTempSig <= databus;
 					nextState <= shiftRighting;
 				when sllD =>
 					shiftCounter  := to_integer(usnigned(Immediate));
 					alu_operation <= ALU_input2;
 					ALUout_on_Databus <= '1';
+					W_EN <='1';
 					shiftTempSig <= databus;
 					nextState <= shiftLefting;
 				end case;
@@ -234,6 +246,8 @@ begin
 			
 			case Immediate is 
 				when 0 =>
+					ALUout_on_Databus <= '1';
+					W_EN <='1';
 					PCplus1 <= '1';
 					EnablePC <= '1';
 					nextState <= fetch;
@@ -246,6 +260,8 @@ begin
 			
 			case Immediate is 
 				when 0 =>
+					ALUout_on_Databus <= '1';
+					W_EN <='1';
 					PCplus1 <= '1';
 					EnablePC <= '1';
 					nextState <= fetch;
