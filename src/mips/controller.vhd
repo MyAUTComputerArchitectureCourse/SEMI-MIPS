@@ -210,8 +210,6 @@ begin
 					I <='1';
 					re <= '1';
 					W_EN <='1';
-					PCplus1 <= '1';
-					EnablePC <= '1';
 					nextState <= PCInc;
 				when srlD =>
 					shiftCounter  := to_integer(usnigned(Immediate));
