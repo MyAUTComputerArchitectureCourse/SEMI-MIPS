@@ -215,10 +215,10 @@ begin
 			i when '1',
 			REG_FILE_SRC2 when others;
 	
-	MEM_TRI_STATE : with signalName select
+	ALU_OUT_MUX : with ALUout_on_Databus select
 		DATABUS <=
-			 when choice1,
-			
-			expression2 when others;
+			ALUoutput when '1',
+			'0' when others;
+	
 	
 end architecture;
