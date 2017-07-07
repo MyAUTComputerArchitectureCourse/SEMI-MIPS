@@ -6,6 +6,7 @@ entity MEMORY is
   port (
     clk   : in  std_logic;
     we      : in  std_logic;
+    re		: in  std_logic;
     address : in  std_logic_vector(7 downto 0);
     datain  : in  std_logic_vector(15 downto 0);
     dataout : out std_logic_vector(15 downto 0)
@@ -29,8 +30,12 @@ begin
       end if;
       read_address <= address;
     end if;
-  end process RamProc;
-
-  dataout <= ram(to_integer(unsigned(read_address)));
+	end process RamProc;
+	
+	OUTPUT : with re select
+		dataout <=
+			ram(to_integer(unsigned(read_address))) when '1',
+			"ZZZZZZZZZZZZZZZZ" when '0',
+			"ZZZZZZZZZZZZZZZZ" when others;
 
 end architecture;
