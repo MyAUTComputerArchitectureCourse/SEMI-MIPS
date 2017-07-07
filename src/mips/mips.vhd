@@ -3,6 +3,7 @@ entity SEMI_MIPS is
     clk   			: in  std_logic;
     external_reset	: in std_logic;
     we      		: out  std_logic;
+    re				: out std_logic;
     address 		: out  std_logic_vector(7 downto 0);
     memory_in		: in  std_logic_vector(15 downto 0);
     memory_out		: out  std_logic_vector(15 downto 0)
@@ -39,7 +40,8 @@ architecture DATA_PATH of SEMI_MIPS is
 			OUT1_ADR:	in	std_logic_vector(3 downto 0);
 			OUT2_ADR:	in	std_logic_vector(3 downto 0);
 			OUTPUT1	:	out	std_logic_vector(15 downto 0);
-			OUTPUT2	:	out	std_logic_vector(15 downto 0)
+			OUTPUT2	:	out	std_logic_vector(15 downto 0);
+			REG0_OUT:	out std_logic_vector(15 downto 0)
 		);
 	end component;
 	
@@ -94,20 +96,28 @@ architecture DATA_PATH of SEMI_MIPS is
  	
 	signal S1 , S2 , reg2 , d  : std_logic_vector(2 downto 0);
 	
+	signal REG_IN_ADR, REG_OUT1_ADR, REG_OUT2_ADR : std_logic_vector(3 downto 0);
+	
 	signal ALU_OP : std_logic_vector(3 downto 0);
 	signal ALUoutput, ALU_INPUT2 : std_logic_vector(15 downto 0);
 	signal ALU_Zero : std_logic;
+	signal ALUout_on_Databus : std_logic;
 	
+	signal ResetPC : std_logic;
 	
 	signal carryIn, overflowIn, carry, zero, sign, parity, borrow, overflow   : std_logic;
  	
- 	signal REG_FILE_SRC1 , REG_FILE_SRC2 ,  IRoutput : std_logic_vector (15 downto 0);
+ 	signal REG0_OUT ,REG_FILE_SRC1 , REG_FILE_SRC2 ,  IRout : std_logic_vector (15 downto 0);
  	signal W_EN : std_logic;
 	
+	signal itype : std_logic;
+	
 	signal IRLoad, IRReset : std_logic;
-	signal I : std_logic;
+	signal I : std_logic_vector(7 downto 0);
 	signal PCplus1, EnablePC : std_logic;
 	
+	
+	constant STORE_INSTRUCTION_CODE : std_logic_vector(3 downto 0) := "1101";
 	
 begin
 	IR : component reg16b
@@ -116,7 +126,7 @@ begin
 			load   => IRLoad,
 			reset  => IRReset,
 			input  => DATABUS,
-			output => IRoutput
+			output => IRout
 		);
 		
 	ADDRESS_UNIT_inst : component ADDRESS_UNIT
@@ -133,7 +143,7 @@ begin
 	ALU_inst : component ALU
 		port map(
 			CARRY_IN  => carry,
-			INPUT1    => INPUT1,
+			INPUT1    => REG_FILE_SRC1,
 			INPUT2    => ALU_INPUT2,
 			OPERATION => ALU_OP,
 			OUTPUT    => ALUoutput,
@@ -154,22 +164,29 @@ begin
 			overflow   => overflow
 		);
 		
+	REGFILE_INPUT_ADDRESS : with IRout select
+		REG_IN_ADR <=
+			IRout(11 downto 8) when STORE_INSTRUCTION_CODE,
+			IRout(7 downto 4) when others;
+	
 	registerFile_inst : component registerFile
 		port map(
 			CLK      => CLK,
 			W_EN     => W_EN,
 			INPUT    => DATABUS,
-			IN_ADR   => IN_ADR,
-			OUT1_ADR => OUT1_ADR,
-			OUT2_ADR => OUT2_ADR,
-			OUTPUT1  => OUTPUT1,
-			OUTPUT2  => OUTPUT2
+			IN_ADR   => REG_IN_ADR,
+			OUT1_ADR => REG_OUT1_ADR,
+			OUT2_ADR => REG_OUT2_ADR,
+			OUTPUT1  => REG_FILE_SRC1,
+			OUTPUT2  => REG_FILE_SRC2,
+			REG0_OUT => REG0_OUT
 		);
 		
+	
 	CU_inst : component CU
 		port map(
 			clk               => clk,
-			ExternalReset     => ExternalReset,
+			ExternalReset     => external_reset,
 			carry             => carry,
 			zero              => zero,
 			sign              => sign,
@@ -177,7 +194,7 @@ begin
 			borrow            => borrow,
 			overflow          => overflow,
 			IRout             => IRout,
-			reg0              => reg0,
+			reg0              => REG0_OUT,
 			ALUout_on_Databus => ALUout_on_Databus,
 			IRload            => IRload,
 			ResetPC           => ResetPC,
@@ -189,10 +206,15 @@ begin
 			re                => re,
 			itype             => itype,
 			alu_operation     => ALU_OP,
-			databus           => databus
+			databus           => DATABUS
 		);
 		
-		
+	ALU_INPUT2_MUX : with itype select
+		ALU_INPUT2 <=
+			REG_FILE_SRC2 when '0',
+			i when '1',
+			REG_FILE_SRC2 when others;
+	
 	MEM_TRI_STATE : with signalName select
 		DATABUS <=
 			 when choice1,
