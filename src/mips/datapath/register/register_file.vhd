@@ -11,7 +11,8 @@ entity registerFile is
 		OUT1_ADR:	in	std_logic_vector(3 downto 0);
 		OUT2_ADR:	in	std_logic_vector(3 downto 0);
 		OUTPUT1	:	out	std_logic_vector(15 downto 0);
-		OUTPUT2	:	out	std_logic_vector(15 downto 0)
+		OUTPUT2	:	out	std_logic_vector(15 downto 0);
+		REG0_OUT:	out std_logic_vector(15 downto 0)
 	);
 end entity;
 architecture registerFile_ARCH of registerFile is
@@ -20,6 +21,8 @@ architecture registerFile_ARCH of registerFile is
 begin
 	OUTPUT1 <= data(to_integer(unsigned(OUT1_ADR)));
 	OUTPUT2 <= data(to_integer(unsigned(OUT2_ADR)));
+	
+	REG0_OUT <= data(0);
   
 	process(clk)
 	begin
