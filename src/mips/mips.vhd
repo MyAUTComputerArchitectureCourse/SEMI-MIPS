@@ -93,11 +93,20 @@ architecture DATA_PATH of SEMI_MIPS is
 	signal DATABUS  : std_logic_vector(15 downto 0);
  	
 	signal S1 , S2 , reg2 , d  : std_logic_vector(2 downto 0);
-	signal Alu_OP : std_logic_vector(3 downto 0);
-	signal I , carryIn, overflowIn, carry, zero, sign, parity, borrow, overflow   : std_logic;
- 	signal ALUoutput , source1 , source2 ,  IRoutput : std_logic_vector (15 downto 0);
+	
+	signal ALU_OP : std_logic_vector(3 downto 0);
+	signal ALUoutput, ALU_INPUT2 : std_logic_vector(15 downto 0);
+	signal ALU_Zero : std_logic;
+	
+	
+	signal carryIn, overflowIn, carry, zero, sign, parity, borrow, overflow   : std_logic;
+ 	
+ 	signal REG_FILE_SRC1 , REG_FILE_SRC2 ,  IRoutput : std_logic_vector (15 downto 0);
+ 	signal W_EN : std_logic;
 	
 	signal IRLoad, IRReset : std_logic;
+	signal I : std_logic;
+	signal PCplus1, EnablePC : std_logic;
 	
 	
 begin
@@ -123,20 +132,20 @@ begin
 		
 	ALU_inst : component ALU
 		port map(
-			CARRY_IN  => CARRY_IN,
+			CARRY_IN  => carry,
 			INPUT1    => INPUT1,
-			INPUT2    => INPUT2,
-			OPERATION => OPERATION,
-			OUTPUT    => OUTPUT,
-			CARRY_OUT => CARRY_OUT,
-			ZERO_OUT  => ZERO_OUT
+			INPUT2    => ALU_INPUT2,
+			OPERATION => ALU_OP,
+			OUTPUT    => ALUoutput,
+			CARRY_OUT => carryIn,
+			ZERO_OUT  => ALU_Zero
 		);
 	
 	STATUS_REGISTER_inst : component STATUS_REGISTER
 		port map(
 			carryIn    => carryIn,
 			overflowIn => overflowIn,
-			data       => data,
+			data       => ALUoutput,
 			carry      => carry,
 			zero       => zero,
 			sign       => sign,
@@ -149,13 +158,40 @@ begin
 		port map(
 			CLK      => CLK,
 			W_EN     => W_EN,
-			INPUT    => INPUT,
+			INPUT    => DATABUS,
 			IN_ADR   => IN_ADR,
 			OUT1_ADR => OUT1_ADR,
 			OUT2_ADR => OUT2_ADR,
 			OUTPUT1  => OUTPUT1,
 			OUTPUT2  => OUTPUT2
 		);
+		
+	CU_inst : component CU
+		port map(
+			clk               => clk,
+			ExternalReset     => ExternalReset,
+			carry             => carry,
+			zero              => zero,
+			sign              => sign,
+			parity            => parity,
+			borrow            => borrow,
+			overflow          => overflow,
+			IRout             => IRout,
+			reg0              => reg0,
+			ALUout_on_Databus => ALUout_on_Databus,
+			IRload            => IRload,
+			ResetPC           => ResetPC,
+			I                 => I,
+			PCplus1           => PCplus1,
+			EnablePC          => EnablePC,
+			W_EN              => W_EN,
+			we                => we,
+			re                => re,
+			itype             => itype,
+			alu_operation     => ALU_OP,
+			databus           => databus
+		);
+		
 		
 	MEM_TRI_STATE : with signalName select
 		DATABUS <=
