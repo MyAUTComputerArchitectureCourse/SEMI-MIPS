@@ -9,17 +9,17 @@ ENTITY ADDRESS_LOGIC IS
         PCside: IN std_logic_vector (7 DOWNTO 0);
         Iside : IN std_logic_vector (7 DOWNTO 0);
         ALout : OUT std_logic_vector (7 DOWNTO 0);
-        ResetPC, I, PCplus1 : IN std_logic
+        ResetPC, Im, PCplus1 : IN std_logic
     );
 END ADDRESS_LOGIC;
 ARCHITECTURE ADDRESS_LOGIC_ARCH of ADDRESS_LOGIC IS
 
 BEGIN
     PROCESS (PCside, Iside, ResetPC,
-            I, PCplus1)
+            Im, PCplus1)
         VARIABLE temp : std_logic_vector (2 DOWNTO 0);
 BEGIN
-        temp := (ResetPC & I & PCplus1);
+        temp := (ResetPC & Im & PCplus1);
         CASE temp IS
             WHEN "100" => ALout <= (OTHERS => '0');
             WHEN "010" => ALout <= Iside;

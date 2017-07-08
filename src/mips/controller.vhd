@@ -14,7 +14,7 @@ entity CU is
 	  
 	  ALUout_on_Databus,					                   -- Data Bus
 	  IRload,                                                  -- IR
-	  ResetPC, I, PCplus1, EnablePC,    					   -- Address Unit
+	  ResetPC, Im, PCplus1, EnablePC,    					   -- Address Unit
 	  W_EN,                 			                       -- register file
 	  we, re,		                                           -- memory
 	  itype
@@ -197,13 +197,13 @@ begin
 					nextState <= fetch;
 				when jmp =>
 					nextState <= fetch;
-					I <= '1';
+					Im <= '1';
 					EnablePC <= '1';
 				when brnz =>
 					alu_operation <= ALU_sub;
 					if (reg0 = "0000000000000000") then -- if reg(0) is 0
 						nextState <= fetch;
-						I <= '1';
+						Im <= '1';
 						EnablePC <= '1';
 					else
 						nextState <= fetch;
@@ -211,13 +211,13 @@ begin
 						PCplus1 <= '1';
 					end if;
 				when store =>
-					I <= '1';
+					Im <= '1';
 					we <= '1';
 					alu_operation <= ALU_input2;
 					ALUout_on_Databus <= '1';
 					nextState <= PCInc;
 				when load =>
-					I <='1';
+					Im <='1';
 					re <= '1';
 					W_EN <='1';
 					nextState <= PCInc;
@@ -236,7 +236,7 @@ begin
 					shiftTempSig <= databus;
 					nextState <= shiftLefting;
 				when others =>
-					assert false report "Reached end of the clock generation";
+					assert false report "X is out";
 				end case;
 				
 		when PCInc =>

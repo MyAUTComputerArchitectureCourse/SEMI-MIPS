@@ -7,7 +7,7 @@ ENTITY ADDRESS_UNIT IS
     PORT (
         Iside : IN std_logic_vector (7 DOWNTO 0);
         Address : OUT std_logic_vector (7 DOWNTO 0);
-        clk, ResetPC, I, PCplus1 : IN std_logic;
+        clk, ResetPC, Im, PCplus1 : IN std_logic;
         EnablePC : IN std_logic
     );
 END ADDRESS_UNIT;
@@ -25,7 +25,7 @@ ARCHITECTURE ADDRESS_UNIT_ARCH OF ADDRESS_UNIT IS
         PCside: IN std_logic_vector (7 DOWNTO 0);
         Iside : IN std_logic_vector (7 DOWNTO 0);
         ALout : OUT std_logic_vector (7 DOWNTO 0);
-        ResetPC, I, PCplus1 : IN std_logic
+        ResetPC, Im, PCplus1 : IN std_logic
     );
     END COMPONENT;
     SIGNAL pcout : std_logic_vector (7 DOWNTO 0);
@@ -35,5 +35,5 @@ BEGIN
     l1 : PROGRAM_COUNTER PORT MAP (EnablePC, AddressSignal, clk, pcout);
     l2 : ADDRESS_LOGIC PORT MAP
         (pcout, Iside, AddressSignal,
-        ResetPC, I, PCplus1);
+        ResetPC, Im, PCplus1);
 END ADDRESS_UNIT_ARCH;
