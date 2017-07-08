@@ -5,40 +5,44 @@ entity TB is
 end entity;
 
 architecture TB_ARCH of TB is
-	component ALU is
+	component SEMI_MIPS_MODULE is
 		port(
-			CARRY_IN	: in  std_logic;
-			INPUT1		: in  std_logic_vector(16 - 1 downto 0);
-			INPUT2		: in  std_logic_vector(16 - 1 downto 0);
-			OPERATION	: in  std_logic_vector(3 downto 0);
-			OUTPUT		: out std_logic_vector(16 - 1 downto 0);
-			CARRY_OUT	: out std_logic;
-			ZERO_OUT	: out std_logic
-	      );
-	end component;
+			CLK : std_logic;
+			EXTERNAL_RESET : std_logic
+		);
+	end component;	
 	
-	signal CARRY_IN		: std_logic;
-	signal INPUT1		: std_logic_vector(16 - 1 downto 0);
-	signal INPUT2		: std_logic_vector(16 - 1 downto 0);
-	signal OPERATION	: std_logic_vector(3 downto 0);
-	signal OUTPUT		: std_logic_vector(16 - 1 downto 0);
-	signal CARRY_OUT	: std_logic;
-	signal ZERO_OUT		: std_logic;
+	signal CLK_COUNTER	: integer := 0;
+	signal CLK_COUNT	: integer := 50;
+	signal CLK : std_logic := '1';
+	signal EXTERNAL_RESET : std_logic;
 	
 begin
-	ALU_inst : component ALU
+	CLOCK_GEN : process is
+	begin
+		loop
+			CLK <= not CLK;
+			wait for 100 ns;
+			CLK <= not CLK;
+			wait for 100 ns;
+			
+			CLK_COUNTER <= CLK_COUNTER + 1;
+			
+			if(CLK_COUNTER = CLK_COUNT) then
+				assert false report "Reached end of the clock generation";
+				wait;
+			end if;
+			
+		end loop;
+		
+	end process CLOCK_GEN;
+	
+	SEMI_MIPS_MODULE_inst : component SEMI_MIPS_MODULE
 		port map(
-			CARRY_IN  => CARRY_IN,
-			INPUT1    => INPUT1,
-			INPUT2    => INPUT2,
-			OPERATION => OPERATION,
-			OUTPUT    => OUTPUT,
-			CARRY_OUT => CARRY_OUT,
-			ZERO_OUT  => ZERO_OUT
+			CLK            => CLK,
+			EXTERNAL_RESET => EXTERNAL_RESET
 		);
 		
-		CARRY_IN	<= '0';
-		INPUT1		<= "0000000000000100", "0000000000100001" after 100 ns, "0000000000000010" after 200 ns;
-		INPUT2		<= "0000000000000010", "0000000000000001" after 100 ns, "0000000000000011" after 200 ns;
-		OPERATION	<= "1010", "0111" after 100 ns, "1001" after 200 ns;
+	
+	EXTERNAL_RESET <= '1', '0' after 200 ns;
 end architecture;
