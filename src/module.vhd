@@ -1,3 +1,6 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
 entity SEMI_MIPS_MODULE is
 	port(
 		CLK : std_logic;
@@ -22,6 +25,7 @@ architecture RTL of SEMI_MIPS_MODULE is
 	  port (
 	    clk   : in  std_logic;
 	    we      : in  std_logic;
+	    re      : in  std_logic;
 	    address : in  std_logic_vector(7 downto 0);
 	    datain  : in  std_logic_vector(15 downto 0);
 	    dataout : out std_logic_vector(15 downto 0)
@@ -39,6 +43,7 @@ begin
 		port map(
 			clk     => clk,
 			we      => we,
+			re		=> re,
 			address => address,
 			datain  => memory_out,
 			dataout => memory_in
