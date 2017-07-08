@@ -263,5 +263,5 @@ begin
 			CARRY => CARRIES(16)
 		);
 	
-	CARRY		<= CARRIES(15) xor CARRIES(16);	
+	CARRY_OUT	<= CARRIES(15) xor CARRIES(16);	
 end architecture;
