@@ -16,6 +16,7 @@ src/mips/datapath/address_unit/program_counter.vhd PROGRAM_COUNTER
 src/mips/datapath/address_unit/address_unit.vhd ADDRESS_UNIT
 src/mips/datapath/register/register_file.vhd registerFile
 src/mips/datapath/register/status_register.vhd STATUS_REGISTER
+src/mips/datapath/register/reg_16bit.vhd reg16b
 src/mips/controller.vhd CU
 src/mips/mips.vhd SEMI_MIPS
-src/mips/module.vhd SEMI_MIPS_MODULE
+src/module.vhd SEMI_MIPS_MODULE
