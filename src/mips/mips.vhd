@@ -1,3 +1,7 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+
 entity SEMI_MIPS is
   port (
     clk   			: in  std_logic;
@@ -113,7 +117,7 @@ architecture DATA_PATH of SEMI_MIPS is
 	signal itype : std_logic;
 	
 	signal IRLoad, IRReset : std_logic;
-	signal I : std_logic_vector(7 downto 0);
+	signal Im : std_logic_vector(7 downto 0);
 	signal PCplus1, EnablePC : std_logic;
 	
 	
@@ -131,11 +135,11 @@ begin
 		
 	ADDRESS_UNIT_inst : component ADDRESS_UNIT
 		port map(
-			Iside    => IRoutput(7 downto 0),
+			Iside    => IRout(7 downto 0),
 			Address  => Address,
 			clk      => clk,
 			ResetPC  => external_reset,
-			I        => I,
+			I        => Im,
 			PCplus1  => PCplus1,
 			EnablePC => EnablePC
 		);
@@ -164,7 +168,7 @@ begin
 			overflow   => overflow
 		);
 		
-	REGFILE_INPUT_ADDRESS : with IRout select
+	REGFILE_INPUT_ADDRESS : with IRout(15 downto 12) select
 		REG_IN_ADR <=
 			IRout(11 downto 8) when STORE_INSTRUCTION_CODE,
 			IRout(7 downto 4) when others;
@@ -198,7 +202,7 @@ begin
 			ALUout_on_Databus => ALUout_on_Databus,
 			IRload            => IRload,
 			ResetPC           => ResetPC,
-			I                 => I,
+			I                 => Im,
 			PCplus1           => PCplus1,
 			EnablePC          => EnablePC,
 			W_EN              => W_EN,
@@ -212,13 +216,13 @@ begin
 	ALU_INPUT2_MUX : with itype select
 		ALU_INPUT2 <=
 			REG_FILE_SRC2 when '0',
-			i when '1',
+			"00000000" & Im when '1',
 			REG_FILE_SRC2 when others;
 	
 	ALU_OUT_MUX : with ALUout_on_Databus select
 		DATABUS <=
 			ALUoutput when '1',
-			'0' when others;
+			"ZZZZZZZZZZZZZZZZ" when others;
 	
 	
 end architecture;
