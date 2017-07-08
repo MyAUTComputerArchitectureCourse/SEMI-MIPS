@@ -23,7 +23,8 @@ architecture MULTIPLICATION_COMPONENT_ARCH of MULTIPLICATION_COMPONENT is
 			INPUT2		: in  std_logic_vector(15 downto 0);
 			IS_SUB		: in  std_logic;											-- 0 for add and 1 for subtraction
 			SUM			: out std_logic_vector(15 downto 0);
-			CARRY		: out std_logic
+			CARRY_OUT	: out std_logic;
+			OVERFLOW	: out std_logic
 	      );
 	end component;
 	
@@ -57,7 +58,7 @@ begin
 	  ain16(I) <= "00000000" & ain(I);
 	  summ(I) <= summ16(I)(7 downto 0);
 		MODULE: ADDER_SUBTRACTOR_COMPONENT
-		port map('0',gav16(I + 1) ,ain16(I) , '0', summ16(I), cables(I));
+		port map('0',gav16(I + 1) ,ain16(I) , '0', summ16(I), cables(I), open);
 
 		ain(I + 1)(7) <= cables(I);
 		MAKING:
