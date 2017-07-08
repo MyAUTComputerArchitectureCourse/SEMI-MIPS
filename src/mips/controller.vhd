@@ -201,7 +201,7 @@ begin
 					EnablePC <= '1';
 				when brnz =>
 					alu_operation <= ALU_sub;
-					if (reg0 = "0000000000000000")) then -- if reg(0) is 0
+					if (reg0 = "0000000000000000") then -- if reg(0) is 0
 						nextState <= fetch;
 						I <= '1';
 						EnablePC <= '1';
