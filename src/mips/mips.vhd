@@ -53,7 +53,7 @@ architecture DATA_PATH of SEMI_MIPS is
 		PORT (
 	        Iside : IN std_logic_vector (7 DOWNTO 0);
 	        Address : OUT std_logic_vector (7 DOWNTO 0);
-	        clk, ResetPC, I, PCplus1 : IN std_logic;
+	        clk, ResetPC, Im, PCplus1 : IN std_logic;
 	        EnablePC : IN std_logic
 	    );
 	end component;
@@ -77,7 +77,7 @@ architecture DATA_PATH of SEMI_MIPS is
 		  
 		  ALUout_on_Databus,					                   -- Data Bus
 		  IRload,                                                  -- IR
-		  ResetPC, I, PCplus1, EnablePC,    					   -- Address Unit
+		  ResetPC, Im, PCplus1, EnablePC,    					   -- Address Unit
 		  W_EN,                 			                       -- register file
 		  we, re,		                                           -- memory
 		  itype
@@ -117,13 +117,16 @@ architecture DATA_PATH of SEMI_MIPS is
 	signal itype : std_logic;
 	
 	signal IRLoad, IRReset : std_logic;
-	signal Im : std_logic_vector(7 downto 0);
+	signal Im : std_logic;
 	signal PCplus1, EnablePC : std_logic;
 	
 	
 	constant STORE_INSTRUCTION_CODE : std_logic_vector(3 downto 0) := "1101";
 	
 begin
+	DATABUS <= memory_in;
+	memory_out <= DATABUS;
+	
 	IR : component reg16b
 		port map(
 			clk    => clk,
@@ -139,7 +142,7 @@ begin
 			Address  => Address,
 			clk      => clk,
 			ResetPC  => external_reset,
-			I        => Im,
+			Im       => Im,
 			PCplus1  => PCplus1,
 			EnablePC => EnablePC
 		);
@@ -202,7 +205,7 @@ begin
 			ALUout_on_Databus => ALUout_on_Databus,
 			IRload            => IRload,
 			ResetPC           => ResetPC,
-			I                 => Im,
+			Im                => Im,
 			PCplus1           => PCplus1,
 			EnablePC          => EnablePC,
 			W_EN              => W_EN,
