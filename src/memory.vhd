@@ -24,6 +24,16 @@ begin
   RamProc: process(clk) is
 
   begin
+  	
+  	ram(0) <= "1110000000010000";
+	ram(1) <= "1110000100010001";
+	ram(2) <= "0000000000010010";
+	ram(3) <= "1101001000000000";
+	
+	
+	ram(32) <= "0000000000000010";
+	ram(33) <= "0000000000000101";
+		
     if clk'event and clk = '1' then
       if we = '1' then
         ram(to_integer(unsigned(address))) <= datain;
@@ -32,10 +42,11 @@ begin
     end if;
 	end process RamProc;
 	
-	OUTPUT : with re select
+	OUTPUT : with re & we select
 		dataout <=
-			ram(to_integer(unsigned(read_address))) when '1',
-			"ZZZZZZZZZZZZZZZZ" when '0',
+			ram(to_integer(unsigned(address))) when "10",
+			"ZZZZZZZZZZZZZZZZ" when "00",
+			"ZZZZZZZZZZZZZZZZ" when "01	",
 			"ZZZZZZZZZZZZZZZZ" when others;
 
 end architecture;
