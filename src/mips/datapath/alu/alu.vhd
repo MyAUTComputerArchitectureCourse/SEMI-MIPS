@@ -29,7 +29,8 @@ architecture ALU_ARCH of ALU is
 			INPUT2		: in  std_logic_vector(16 - 1 downto 0);
 			IS_SUB		: in  std_logic;											-- 0 for add and 1 for subtraction
 			SUM			: out std_logic_vector(16 - 1 downto 0);
-			CARRY		: out std_logic
+			CARRY_OUT	: out std_logic;
+			OVERFLOW	: out std_logic
 	      );
 	end component;
 	
@@ -122,7 +123,8 @@ begin
 			INPUT2 => INPUT2,
 			IS_SUB => OPERATION(0),
 			SUM    => ADDER_SUB_COMPONENT_OUT,
-			CARRY  => ADDER_SUB_COMPONENT_CARRY
+			CARRY_OUT  => ADDER_SUB_COMPONENT_CARRY,
+			OVERFLOW => open
 		);
 	AND_COMPONENT_INS		: AND_COMPONENT
 		port map(
