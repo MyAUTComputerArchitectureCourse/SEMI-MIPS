@@ -222,19 +222,21 @@ begin
 					W_EN <='1';
 					nextState <= PCInc;
 				when srlD =>
-					shiftCounter  := to_integer(usnigned(Immediate));
+					shiftCounter  := to_integer(unsigned(Immediate));
 					alu_operation <= ALU_input2;
 					ALUout_on_Databus <= '1';
 					W_EN <='1';
 					shiftTempSig <= databus;
 					nextState <= shiftRighting;
 				when sllD =>
-					shiftCounter  := to_integer(usnigned(Immediate));
+					shiftCounter  := to_integer(unsigned(Immediate));
 					alu_operation <= ALU_input2;
 					ALUout_on_Databus <= '1';
 					W_EN <='1';
 					shiftTempSig <= databus;
 					nextState <= shiftLefting;
+				when others =>
+					assert false report "Reached end of the clock generation";
 				end case;
 				
 		when PCInc =>
@@ -244,7 +246,7 @@ begin
 			  
 		when shiftRighting =>
 			
-			case Immediate is 
+			case to_integer(unsigned(Immediate)) is 
 				when 0 =>
 					ALUout_on_Databus <= '1';
 					W_EN <='1';
@@ -258,7 +260,7 @@ begin
 			shiftCounter := shiftCounter - 1;
 		when shiftLefting =>
 			
-			case Immediate is 
+			case to_integer(unsigned(Immediate)) is 
 				when 0 =>
 					ALUout_on_Databus <= '1';
 					W_EN <='1';
